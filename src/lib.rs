@@ -45,7 +45,7 @@ pub async fn get(
         "https://{}/{}/{}/namespaces/{}/{}/{}",
         host, apis, group, namespace, kind, resource
     );
-    println!("{}", url);
+    // println!("{}", url);
 
     fs::metadata(&crtfile).expect(&crtfile);
     let crtdata = fs::read(crtfile).unwrap();
