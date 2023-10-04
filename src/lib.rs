@@ -1,3 +1,4 @@
+use std::time::Duration;
 use std::{env, fs};
 
 /// make a get request to incluster api. Err returns a (String, bool) as a message and err_code respectively.
@@ -49,6 +50,7 @@ pub async fn get(
 
     let client = reqwest::Client::builder()
         .add_root_certificate(ca_cert)
+        .timeout(Duration::from_secs(30))
         .build()
         .unwrap();
 
